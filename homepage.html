@@ -4,9 +4,711 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jio-Mart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <style>
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    position: relative;
+}
+#top{
+    position: relative;
+    width: 100%;
+}
+.nav{
+    background-color: rgb(0,142,204);  
+}
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 100px;
+}
+.nav ul li{
+    display: inline-block;
+    line-height: 60px;
+}
+.nav ul li a{
+    color: white;
+    font-size: 15px;
+}
+.nav input{
+    font-size: 15px;
+    height: 35px;
+    margin: auto 0%;
+    border-radius: 7px;
+    padding-left: 10px;
+    border: 0px;
+}
+.menus{
+    background-color: rgb(236,236,237);
+}
+.menus ul{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+}
+.menus ul li{
+    line-height: 40px;
+    background-color: rgb(236,236,237);
+    font-weight: 500;
+}
+.menus ul li a{
+    color: black;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.submenu{
+    display: none;
+}
+.menus ul li:hover .submenu{
+    display: inline-block;
+    position:absolute; 
+    margin-top: 35px;
+    margin-left: -15px; 
+}
+.menus ul li:hover .submenu ul{
+    display: block;
+    margin-left: -100px;
+}
+.menus ul li:hover .submenu ul li{
+    width: 185px;
+    text-align: left;
+}
+.menus ul li:hover .submenu ul li a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.menus ul li:hover .submenu ul li:hover, .menus ul li:hover .submenu ul li a:hover{ 
+    background-color: white;
+    color: rgb(0,142,204);
+    font-size: 15px;
+}
+/* css for slider */
+.carousel {
+  background: #EEE;
+  /* margin-top: 0px; */
+}
+
+.carousel-cell {
+  width: 100%;
+  height: 320px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 0px;
+  color: white;
+}
+.banner{
+    margin: 35px 10px; 
+}
+.banner img{
+    width: 100%;
+}
+.banner img:hover{
+    cursor: pointer;
+}
+/* css slider 1 */
+.carousel1 {
+  background: #EEE;
+}
+
+.carousel-cell1 {
+  width: 1240px;
+  height: 209px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+.carousel-cell1.is-selected {
+  background: #ED2;
+}
+
+/* cell number */
+.carousel-cell1:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: auto;
+  font-size: 0px;
+}
+.brand{
+    display: flex; 
+    justify-content: space-around;
+    margin: auto;
+    width: 90%;
+}
+.brand div:hover{
+    cursor: pointer;
+    transform:scale(1.05);
+}
+.brand img{
+    width: 90%;
+}
+/* css slider 3 */
+.carousel-cell2 {
+  width: 223px;
+  height: 280px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+.carousel-cell2.is-selected {
+  background: #ED2;
+}
+
+/* cell number */
+.carousel-cell2:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 0px;
+}
+.carousel-cell2 :hover{
+    transform: scale(1.1);
+}
+.deals{
+    display: flex;
+    justify-content: space-around;
+    line-height: 9px;
+    width: 90%;
+    margin: auto;
+}
+.deals>div{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 12px;
+    width: auto;
+}
+.deals>div>img{
+    padding: 5px;
+}
+.deals>div>img:hover{
+    transform: scale(1.1);
+}
+.deals>div>p{
+    font-weight: 600;
+}
+.deals>div>p:nth-child(3){
+    font-size: medium;
+}
+.deals>div>p:nth-child(4){
+    text-decoration: line-through;
+    font-weight: 300;
+}
+.deals>div>p:nth-child(5){
+    color: rgb(102, 152, 27);
+}
+.deals>div>button{
+    color: white;
+    background-color: rgb(0,142,204);
+    width: 100%;
+    text-align: left;
+    height: auto;
+    font-size: larger;
+    border: 0px;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 9px;
+}
+.banner2{
+    width: 97%;
+    display: flex;
+    margin: 30px 0;
+}
+.banner2>div{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   gap: 20px;
+   margin: auto;
+}
+h2{
+    font-size: x-large;
+    font-weight: 700;
+    margin-left: 5%;
+    margin-top: 30px;
+}
+.bottom{
+    background-color: rgb(236,237,239);
+    justify-content: space-evenly;
+    display: flex;
+    line-height: 25px;
+}
+.bottom>div:first-child{
+    display: flex;
+    width: auto;
+}
+.bottom>div>div{
+    margin: 40px; 
+    height: 400px;
+    /* padding: 10% 0; */
+    /* -ms-transform: translateY(-50%); */
+  transform: translateY(20%);
+}
+.bottom>div:last-child{
+    transform: translateY(20%);
+    width: 30%;
+}
+.bottom li:first-child{
+    cursor: auto;
+}
+.bottom li{
+    cursor: pointer;
+}
+.last{
+    display: flex;
+    font-size: smaller;
+    line-height: 7px;
+    text-align: center;
+    background-color: rgb(236,237,239);
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}
+    </style>
 </head>
 <body>
-    
+    <!-- nav & menu bar  -->
+    <div id="top">
+        <div class="nav">
+            <ul>
+                <li><i class="fa fa-bars" style="font-size:20px;color:white;cursor: pointer;"></i></li>
+                <img src="https://www.jiomart.com/assets/version1669919139/smartweb/images/jiomart_logo_beta.svg" alt="">
+                <input type="text" style="width: 55%" placeholder="Search essentials, groceries and more...">
+                &nbsp<li><a href="#"><i class="glyphicon glyphicon-user">&nbsp</i>Sign up/Sign in</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart" style="font-size:24px;color:white"></i>&nbsp Cart</a></li>
+            </ul>
+        </div>
+        <div class="menus">
+            <ul>
+                <li><a href="#">Groceries &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="#">Dairy & Bakery</a></li>
+                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="#">Staples</a></li>
+                            <li><a href="#">Snacks & Branded Food</a></li>
+                            <li><a href="#">Beverages</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Premium Fruits &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Apples & Pears</a></li>
+                            <li><a href="#">Avacado, Peach, Plum</a></li>
+                            <li><a href="#">Banana & Coconut</a></li>
+                            <li><a href="#">Cherries & Berries </a></li>
+                            <li><a href="#">Citrus, Mango & Grapes</a></li>
+                            <li><a href="#">Dates</a></li>
+                            <li><a href="#">Seasonal & Minor Fruits</a></li>
+                            <li><a href="#">Papaya & Pineapple</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home & Kitchen &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Disposables</a></li>
+                            <li><a href="#">Furnishing</a></li>
+                            <li><a href="#">Furniture</a></li>
+                            <li><a href="#">Home Decor</a></li>
+                            <li><a href="#">Kitchenware</a></li>
+                            <li><a href="#">Tableware</a></li>
+                            <li><a href="#">Garden & Outdoor</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Fashion &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Boys</a></li>
+                            <li><a href="#">Girls</a></li>
+                            <li><a href="#">Junior Boys</a></li>
+                            <li><a href="#"> Infants</a></li>
+                            <li><a href="#"> Baby Care</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Electronics &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Mobiles & Tablets</a></li>
+                            <li><a href="#">TV & Speakers</a></li>
+                            <li><a href="#">Home Appliances</a></li>
+                            <li><a href="#">Computers</a></li>
+                            <li><a href="#">Cameras</a></li>
+                            <li><a href="#">Kitchen Appliances</a></li>
+                            <li><a href="#">Smart Devices</a></li>
+                            <li><a href="#">Gaming</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Phones</a></li>
+                            <li><a href="#">Grooming</a></li>
+                            <li><a href="#">Office Products</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Beauty &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Make-Up</a></li>
+                            <li><a href="#">Hair</a></li>
+                            <li><a href="#">Skin Care</a></li>
+                            <li><a href="#">Fragrances</a></li>
+                            <li><a href="#">Personal Care</a></li>
+                            <li><a href="#">Mom & Beauty</a></li>
+                            <li><a href="#">Tools & Appliances</a></li>
+                            <li><a href="#">Wellness</a></li>
+                            <li><a href="#">Fitness</a></li>
+                            <li><a href="#">Treatments</a></li>
+                            <li><a href="#">Covid Essentials</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home Improvement &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Auto Care</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Hardware & Plumbing</a></li>
+                            <li><a href="#">Home Cleaning</a></li>
+                            <li><a href="#">Packaging Supplies</a></li>
+                            <li><a href="#">Power & Hand Tools</a></li>
+                            <li><a href="#">Home Safety</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Sports, Toys & Luggage &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Toys & Games</a></li>
+                            <li><a href="#">Bags & Travel Luggage</a></li>
+                            <li><a href="#">Sporting Goods</a></li>
+                            <li><a href="#">Fitness Equipments</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- slider  -->
+    <div class="carousel" data-flickity='{ "autoPlay": true }'>
+        <div class="carousel-cell" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669913386_1669808764_KV_1680x320.jpg)"></div>
+        <div class="carousel-cell" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670867865_Home-and-Kitchen-Appliances-Carnival_1680-x-320.jpg)"></div>
+        <div class="carousel-cell" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670956361_1670597073_1670352644_OIL-BANNER-Desktop.jpg)"></div>
+        <div class="carousel-cell" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670956997_Dec-14_web.jpg)"></div>
+        <div class="carousel-cell" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670389768_Web_Mumbai_PremiumFruits.jpg)"></div>
+    </div>
+    <!-- banner1 -->
+    <div class="banner">
+        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1667281294_bLOCK_BUSTER_dEALS_1_Desktop.jpg" alt="">
+        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1662531217_Wednesday_Bonus.jpg" alt="">
+    </div>
+    <!-- slider 1 -->
+    <div class="carousel1" data-flickity='{ "groupCells": true }'>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669828307_MobiKwik_1240x209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670694788_1240x209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669828201_AU-Bank_1240x209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669828307_MobiKwik_1240x209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669828257_Paytm_1240_209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670907955_Slice_1240x209.jpg)"></div> 
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670539009_1240x209.jpg)"></div>
+        <div class="carousel-cell1" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669828355_Simpl_Adapt_1240x209.jpg)"></div>
+      </div>
+    <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1668663411_Sim-Delivery_1240_X_194_px_web.jpg" style="width: 100%;margin: 5px 0px;" alt="">
+    <div class="mid">
+        <!--Trending Brands  -->
+      <h2>Trending Brands</h2>
+      <div class="brand">
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670350341_Samsung_Desktop_version.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670842891_1669789269_MI_Desktop.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669789289_Parle_Desktop.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669785711_Lifelong_Desktop.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669789323_Tecno_Desktop.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669910985_Campus.jpg" alt="">
+        </div>
+      </div>
+      <h2>Shop From Categories</h2>
+      <div class="carousel2" data-flickity='{ "groupCells": true }'>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703300_1668783198_Shop-From-Top-Categories-19.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703341_1669354771_Shop-From-Top-Categories-16.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703402_1667814151_1666962092_Shop-From-Top-Categories-17.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669702872_1669091076_03.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669702940_1667813218_1666962559_Shop-From-Top-Categories-11.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669702987_1669091131_02.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703054_1669120666_Tea__Coffee.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703137_1669120884_Biscuits__Cookies.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703198_1669120723_Snacks__Namkeens.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703737_1667888563_Best_of_kitchenware.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703137_1669120884_Biscuits__Cookies.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703963_1668422823_1667814516_1666962153_Shop-From-Top-Categories-07.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669704043_1667814699_1667593961_Shop-From-Top-Categories-09.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1670956920_0___Shop_From_Top_Categories___HPC_Ministore_Tile.jpg)"></div>
+        <div class="carousel-cell2" style="background-image: url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1669703570_1667906868_Skincare__Hair_care.jpg)"></div>
+        </div>
+        <!-- Top Deals -->
+        <h2>Top Deals</h2>
+        <div class="deals">
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490012806/dabur-honey-1-kg-product-images-o490012806-p490012806-0-202203150917.jpg" alt="">
+                <p>Dabur Honey 1 kg</p>
+                <p>₹725.50</p>
+                <p>M.R.P: ₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/491055460/colgate-strong-teeth-dental-cream-toothpaste-500-g-saver-pack-product-images-o491055460-p491055460-0-202203151056.jpg" alt="">
+                <p>Colgate Toothpaste</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/492367966/surf-excel-easy-wash-detergent-powder-5-kg-product-images-o492367966-p590837659-0-202208111657.jpg" alt="">
+                <p>Surf excel detergent</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490003834/maggi-2-minute-masala-instant-noodles-560-g-product-images-o490003834-p490003834-0-202203150702.jpg" alt="">
+                <p>Maggi instant noodles</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490012719/gemini-refined-sunflower-oil-1-l-product-images-o490012719-p490012719-0-202203151822.jpg" alt="">
+                <p>Gemini oil 1 kg</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/491085658/pears-pure-gentle-soap-with-natural-oils-125-g-buy-4-get-1-free-product-images-o491085658-p491085658-0-202203170226.jpg" alt="">
+                <p>Pears soap</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+        
+        </div>
+        <!-- Home esssentials -->
+        <h2>Home & Cleansing Esssentials</h2>
+        <div class="brand">
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670350341_Samsung_Desktop_version.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669715870_02.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669715897_03.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669715897_03.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669715990_05.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716033_06.jpg" alt="">
+            </div>
+        </div>
+        <!-- banner -->
+        <div class="banner2">
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670953382_TTG_600X350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670953450_Saffola-Chyawanprash_Jiomart_600x350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670871043_biscuit-600x350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670590410_1.jpg" alt="">
+            </div>
+        </div>
+        <!-- Mom & Baby Care -->
+        <h2>Mom & Baby Care</h2>
+        <div class="brand">
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716442_01.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716521_02.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716551_03.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716576_04.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716604_05.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669716638_06.jpg" alt="">
+            </div>
+          </div>
+        <!-- Mom & Baby Top picks -->
+        <h2>Mom & Baby Top picks</h2>
+        <div class="deals">
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490896773/himalaya-gentle-baby-wipes-72-pcs-product-images-o490896773-p490896773-0-202203170627.jpg" alt="">
+                <p>Himalaya wipes</p>
+                <p>₹725.50</p>
+                <p>M.R.P: ₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490934275/mamypoko-extra-absorb-pants-m-44-count-7-12-kg-product-images-o490934275-p490934275-0-202210041645.jpg" alt="">
+                <p>Mamypoko</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/490998031/pampers-baby-dry-pants-l-42-count-9-14-kg-product-images-o490998031-p490998031-0-202209231749.jpg" alt="">
+                <p>Pampers</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/rvgqf5jbad/bumtum-baby-diaper-medium-72-pcs-product-images-orvgqf5jbad-p590872168-0-202205172212.jpg" alt="">
+                <p>Bumtum diaper</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/rvh1tdt1pc/champs-soft-dry-baby-pants-medium-size-74-pcs-pack-product-images-orvh1tdt1pc-p590996981-0-202201120038.jpg" alt="">
+                <p>Champs baby pants</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+            <div>
+                <img src="https://www.jiomart.com/images/product/150x150/491085658/pears-pure-gentle-soap-with-natural-oils-125-g-buy-4-get-1-free-product-images-o491085658-p491085658-0-202203170226.jpg" alt="">
+                <p>Pears soap</p>
+                <p>₹725.50</p>
+                <p>₹825.50</p>
+                <p>Save ₹100</p>
+                <button>Add to Cart</button>
+            </div>
+        
+        </div>
+        <div class="banner2">
+            <div>
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1667457149_Atta_600x350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1667459783_01--Staple-Store-_600x350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1667906311_Organic-Range_600x350.jpg" alt="">
+                <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1667473112_Organic-Range-for-Healthy-Diet-600-350.jpg" alt="">
+            </div>
+        </div>
+    </div>  
+    <div class="bottom">
+        <div>
+            <div>
+                <ul>
+                    <li style="font-weight:600 ;">MOST POPULAR CATEGORIES</li>
+                    <li>Staples</li>
+                    <li>Beverages</li>
+                    <li>Personal Care</li>
+                    <li>Home Care</li>
+                    <li>Fruits & Vegetables</li>
+                    <li>Baby Care</li>
+                    <li>Snacks & Branded Foods</li>
+                    <li>Dairy & Balery</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li style="font-weight:600">CUSTOMER SERVICES</li>
+                    <li>About Us</li>
+                    <li>Terms & Condotions</li>
+                    <li>Privacy Policy</li>
+                    <li>E-waste Policy</li>
+                    <li>Cancellation & return policy</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h5 style="font-weight:600">CONTACT US</h5>
+            <p>WhatsApp us : <a href="#">70003 70003</a> </p>
+            <p>Call Us : <a href="#">1800 890 1222</a>  <br>
+                8:00 AM to 8:00 PM, 365 days</p>
+            <p>Please note that you are accessing the BETA Version of <a href="#">www.jiomart.com</a></p>
+            <p>Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the beta website, please email us on <a href="#">cs@jiomart.com</a></p>
+        </div>
+    </div>
+    <div class="last">
+        <div style="width: 70%;">
+            <p>Best viewed on Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+, Google Chrome 80+</p>
+            <p>© 2022 All rights reserved. Reliance Retail Ltd.</p>
+        </div>
+        <div>
+            <p>DOWNLOAD APP</p>
+            <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/ios_store.png" alt="">
+            <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/play_store.png" alt="">
+        </div>
+    </div>
 </body>
 </html>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
