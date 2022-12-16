@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jio-mart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        *{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    position: relative;
+}
+#top{
+    position: relative;
+    width: 100%;
+}
+.nav{
+    background-color: rgb(0,142,204);  
+}
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 100px;
+}
+.nav ul li{
+    display: inline-block;
+    line-height: 60px;
+}
+.nav ul li a{
+    color: white;
+    font-size: 15px;
+}
+.nav input{
+    font-size: 15px;
+    height: 35px;
+    margin: auto 0%;
+    border-radius: 7px;
+    padding-left: 10px;
+    border: 0px;
+}
+.menus{
+    background-color: rgb(236,236,237);
+}
+.menus ul{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+}
+.menus ul li{
+    line-height: 40px;
+    background-color: rgb(236,236,237);
+    font-weight: 500;
+}
+.menus ul li a{
+    color: black;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+.right {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.submenu{
+    display: none;
+}
+.menus ul li:hover .submenu{
+    display: inline-block;
+    position:absolute; 
+    margin-top: 35px;
+    margin-left: -15px; 
+}
+.menus ul li:hover .submenu ul{
+    display: block;
+    margin-left: -100px;
+}
+.menus ul li:hover .submenu ul li{
+    width: 185px;
+    text-align: left;
+}
+.menus ul li:hover .submenu ul li a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.menus ul li:hover .submenu ul li:hover, .menus ul li:hover .submenu ul li a:hover{ 
+    background-color: white;
+    color: rgb(0,142,204);
+    font-size: 15px;
+}
+.main{
+    display: flex;
+}
+.categories{
+   
+    padding: 15px;
+}
+#select{
+    background-color: rgb(236,236,237);
+    width: 200px;
+    padding: 15px;
+    margin-bottom:10px;
+    border: 0px;
+}
+#select option{
+    background-color: rgb(236,236,237);
+    width: 200px;
+    padding: 15px;
+    margin-bottom:10px;
+    border: 0px;
+}
+.categories{
+    margin: 0 30px;
+    width: 230px;
+    border: 2px solid rgb(46, 4, 4);
+}
+#contain {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    gap: 20px;
+    
+}
+#contain>div{
+    width: 230px;
+}
+#contain img {
+    width: 100%;
+}
+button{
+    color: white;
+    background-color: rgb(0,142,204);
+    width: 97%;
+    text-align: left;
+    height: auto;
+    font-size: larger;
+    border: 0px;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 9px;
+}
+.child p{
+    font-weight: 600;
+}
+.filter{
+    text-align: right;
+}
+#categoryFilter,#priceSort{
+    height: 30px;
+    margin: 10px;
+    width: 200px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+    </style>
+</head>
+<body>
+     <!-- nav & menu bar  -->
+     <div id="top">
+        <div class="nav">
+            <ul>
+                <li><i class="fa fa-bars" style="font-size:20px;color:white;cursor: pointer;"></i></li>
+                <img src="https://www.jiomart.com/assets/version1669919139/smartweb/images/jiomart_logo_beta.svg" alt="">
+                <input type="text" style="width: 55%"  placeholder="Search essentials, groceries and more...">
+                &nbsp<li><a href="#"><i class="glyphicon glyphicon-user">&nbsp</i>Sign up/Sign in</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart" style="font-size:24px;color:white"></i>&nbsp Cart</a></li>
+            </ul>
+        </div>
+        <div class="menus">
+            <ul>
+                <li><a href="#">Groceries &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="#">Dairy & Bakery</a></li>
+                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="#">Staples</a></li>
+                            <li><a href="#">Snacks & Branded Food</a></li>
+                            <li><a href="#">Beverages</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Premium Fruits &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Apples & Pears</a></li>
+                            <li><a href="#">Avacado, Peach, Plum</a></li>
+                            <li><a href="#">Banana & Coconut</a></li>
+                            <li><a href="#">Cherries & Berries </a></li>
+                            <li><a href="#">Citrus, Mango & Grapes</a></li>
+                            <li><a href="#">Dates</a></li>
+                            <li><a href="#">Seasonal & Minor Fruits</a></li>
+                            <li><a href="#">Papaya & Pineapple</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home & Kitchen &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Disposables</a></li>
+                            <li><a href="#">Furnishing</a></li>
+                            <li><a href="#">Furniture</a></li>
+                            <li><a href="#">Home Decor</a></li>
+                            <li><a href="#">Kitchenware</a></li>
+                            <li><a href="#">Tableware</a></li>
+                            <li><a href="#">Garden & Outdoor</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Fashion &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Boys</a></li>
+                            <li><a href="#">Girls</a></li>
+                            <li><a href="#">Junior Boys</a></li>
+                            <li><a href="#"> Infants</a></li>
+                            <li><a href="#"> Baby Care</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Electronics &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Mobiles & Tablets</a></li>
+                            <li><a href="#">TV & Speakers</a></li>
+                            <li><a href="#">Home Appliances</a></li>
+                            <li><a href="#">Computers</a></li>
+                            <li><a href="#">Cameras</a></li>
+                            <li><a href="#">Kitchen Appliances</a></li>
+                            <li><a href="#">Smart Devices</a></li>
+                            <li><a href="#">Gaming</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Phones</a></li>
+                            <li><a href="#">Grooming</a></li>
+                            <li><a href="#">Office Products</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Beauty &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Make-Up</a></li>
+                            <li><a href="#">Hair</a></li>
+                            <li><a href="#">Skin Care</a></li>
+                            <li><a href="#">Fragrances</a></li>
+                            <li><a href="#">Personal Care</a></li>
+                            <li><a href="#">Mom & Beauty</a></li>
+                            <li><a href="#">Tools & Appliances</a></li>
+                            <li><a href="#">Wellness</a></li>
+                            <li><a href="#">Fitness</a></li>
+                            <li><a href="#">Treatments</a></li>
+                            <li><a href="#">Covid Essentials</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home Improvement &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Auto Care</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Hardware & Plumbing</a></li>
+                            <li><a href="#">Home Cleaning</a></li>
+                            <li><a href="#">Packaging Supplies</a></li>
+                            <li><a href="#">Power & Hand Tools</a></li>
+                            <li><a href="#">Home Safety</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Sports, Toys & Luggage &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Toys & Games</a></li>
+                            <li><a href="#">Bags & Travel Luggage</a></li>
+                            <li><a href="#">Sporting Goods</a></li>
+                            <li><a href="#">Fitness Equipments</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    <div class="filter">
+        <input type="text" id="searchbar
+        ">
+        <select id="priceSort">
+            <option value="">Sort By Price</option>
+            <option value="h2l">High to Low</option>
+            <option value="l2h">Low to High</option>
+          </select>
+          <select id="categoryFilter">
+            <option value="">Filter By Category</option>
+            <option value="Fruit">Fruits</option>
+            <option value="Vegetable">Vegetables</option>
+            <option value="Herbs">Herbs</option>
+          </select>
+    </div>
+    <!-- main page -->
+    <div class="main">
+       <div class="categories">
+            <h3>Categories</h3>
+            <select name="" id="select">
+                <option value="">Fruits & Vegetables</option>
+                <option value="">Fresh Fruits</option>
+                <option value="">Premium Fruits</option>
+                <option value="">Fresh Vegetables</option>
+                <option value="">Herbs & Vegetables</option>
+                <option value="">Exotic Fruits & Vegetables</option>
+            </select>
+            <select name="" id="select">
+                <option value="">Dairy & Bakery</option>
+                <option value="">Dairy</option>
+                <option value="">Toast & Khari</option>
+                <option value="">Cales & Muffins</option>
+                <option value="">Breads & Buns </option>
+                <option value="">Baked Cookies</option>
+                <option value="">Bakery Snacks</option>
+                <option value="">Batter & Chutney </option>
+            </select>
+            <select name="" id="select">
+                <option value="">Staples</option>
+                <option value="">Atta & Sooji</option>
+                <option value="">Dals & Pulses</option>
+                <option value="">Rice & Rice Products</option>
+                <option value="">Edible Oils</option>
+                <option value="">Masalas & Spices</option>
+                <option value="">Salt, Sugar & Jaggery</option>
+                <option value="">Ghee</option>
+            </select>
+            <select name="" id="select">
+                <option value="">Snacks</option>
+                <option value="">Biscuits & Cookies</option>
+                <option value="">Noodles & Pastas</option>
+                <option value="">Namkeen</option>
+                <option value="">Edible Oils</option>
+                <option value="">Chocolates</option>
+                <option value="">Ready to Cook & Eat</option>
+                <option value="">Cereals</option>
+            </select>
+            <select name="" id="select">
+                <option value="">Personal Care</option>
+                <option value="">Fresh Fruits</option>
+                <option value="">Premium Fruits</option>
+                <option value="">Fresh Vegetables</option>
+                <option value="">Herbs & Vegetables</option>
+                <option value="">Exotic Fruits & Vegetables</option>
+            </select>
+            <select name="" id="select">
+                <option value="">Apparel</option>
+                <option value="">Dairy</option>
+                <option value="">Toast & Khari</option>
+                <option value="">Cales & Muffins</option>
+                <option value="">Breads & Buns </option>
+                <option value="">Baked Cookies</option>
+                <option value="">Bakery Snacks</option>
+                <option value="">Batter & Chutney </option>
+            </select>
+            <select name="" id="select">
+                <option value="">Home Care</option>
+                <option value="">Atta & Sooji</option>
+                <option value="">Dals & Pulses</option>
+                <option value="">Rice & Rice Products</option>
+                <option value="">Edible Oils</option>
+                <option value="">Masalas & Spices</option>
+                <option value="">Salt, Sugar & Jaggery</option>
+                <option value="">Ghee</option>
+            </select>
+        </div> 
+        <div id="contain"></div>
+    </div>
+</body>
+</html>
+<script>
+let arr=[
+{
+id: 1,
+img: "https://www.jiomart.com/images/product/600x600/590000264/carrot-red-per-kg-product-images-o590000264-p590000264-0-202203151749.jpg",
+name: "Carrot Red per kg",
+category: "Fruit",
+cutoffprice: "36.00",
+price: "45.00",
+},
+{
+id: 2,
+img: "https://www.jiomart.com/images/product/600x600/590000469/aloe-vera-1-kg-product-images-o590000469-p590309514-0-202207291755.jpg",
+name: "Aloe Vera 1 Kg",
+category: "Fruit",
+cutoffprice: "99.00",
+price: "115.00",
+},
+{
+id: 3,
+img: "https://www.jiomart.com/images/product/420x420/599990419/persimmon-premium-indian-1-pc-approx-175-g-225-g-product-images-o599990419-p593160822-0-202209211959.jpg",
+name: "Persimmon Premium Indian 1 Pc (Approx 150 g - 200 g)",
+category: "Vegetable",
+cutoffprice: "129.00",
+price: "139.00",
+},
+{
+id: 4,
+img: "https://www.jiomart.com/images/product/600x600/590000723/dill-leaves-1-bunch-approx-100-g-250-g-product-images-o590000723-p590000723-0-202203151011.jpg",
+name: "Dill Leaves 1 Bunch (Approx 100 g- 250 g)",
+category: "Vegetable",
+cutoffprice: "20.00",
+price: "25.00",
+},
+{
+id: 5,
+img: "https://www.jiomart.com/images/product/600x600/590001814/strawberry-pack-approx-170-g-250-g-product-images-o590001814-p590116964-0-202203170741.jpg",
+name: "Strawberry (Pack) (Approx 170 g - 250 g)",
+category: "Fruit",
+cutoffprice: "59.00",
+price: "69.00",
+},
+{
+id: 6,
+img: "https://www.jiomart.com/images/product/600x600/590003551/tinda-500-g-product-images-o590003551-p590144489-0-202203171014.jpg",
+name: "Tinda 250 g",
+category: "Vegetable",
+cutoffprice: "29.00",
+price: "35.00",
+},
+{
+id: 7,
+img: "https://www.jiomart.com/images/product/600x600/590003581/broccoli-each-approx-400-g-600-g-product-images-o590003581-p590113044-0-202203150433.jpg",
+name: "Broccoli (Each) (Approx. 200 g - 400 g)",
+category: "Vegetable",
+cutoffprice: "59.00",
+price: "69.00",
+},
+{
+id: 8,
+img: "https://www.jiomart.com/images/product/600x600/590004501/anjeer-pack-approx-300-g-400-g-product-images-o590004501-p590144488-0-202203170844.jpg",
+name: "Anjeer (Pack) (Approx 300 g - 400 g)",
+category: "Fruit",
+cutoffprice: "49.00",
+price: "59.00",
+},
+{
+id: 9,
+img: "https://www.jiomart.com/images/product/600x600/590008009/microgreen-peas-shoot-50-g-product-images-o590008009-p590008009-0-202203150527.jpg",
+name: "Microgreen Peas Shoot 50 g",
+category: "Vegetable",
+cutoffprice: "125.00",
+price: "139.00",
+},
+{
+id: 10,
+img: "https://www.jiomart.com/images/product/600x600/590008020/potted-herbs-thyme-each-product-images-o590008020-p590362836-0-202203151048.jpg",
+name: "Potted Herbs Thyme Each",
+category: "Herbs",
+cutoffprice: "335.00",
+price: "380.00",
+},
+{
+id: 11,
+img: "https://www.jiomart.com/images/product/420x420/599991400/apple-jazz-premium-imported-4-pc-approx-740-g-860-g-product-images-o599991400-p591778599-0-202207282047.jpg",
+name: "Apple Jazz Premium Imported 4 Pc (Approx 600 g - 720 g)",
+category: "Fruit",
+cutoffprice: "349.00",
+price: "379.00",
+},
+{
+id: 12,
+img: "https://www.jiomart.com/images/product/420x420/599991062/custard-apple-golden-premium-indian-1-pc-approx-300-g-400-g-product-images-o599991062-p593160824-0-202209271839.jpg",
+name: "Custard Apple Golden Premium Indian 1 Pc (Approx 300 g - 400 g)",
+category: "Fruit",
+cutoffprice: "79.00",
+price: "119.00",
+},
+{
+id: 13,
+img: "https://www.jiomart.com/images/product/600x600/590008021/potted-herbs-oregano-each-product-images-o590008021-p590362832-0-202203151520.jpg",
+name: "Potted Herbs Oregano Each",
+category: "Herbs",
+cutoffprice: "335.00",
+price: "380.00",
+},
+{
+id: 14,
+img: "https://www.jiomart.com/images/product/600x600/590008022/potted-herbs-parsley-curled-flat-each-product-images-o590008022-p590362833-0-202203151013.jpg",
+name: "Potted Herbs Parsley Curled/Flat Each",
+category: "Herbs",
+cutoffprice: "335.00",
+price: "380.00",
+},
+{
+id: 15,
+img: "https://www.jiomart.com/images/product/600x600/590008024/potted-herbs-celery-each-product-images-o590008024-p590362831-0-202203170742.jpg",
+name: "Potted Herbs Celery Each",
+category: "Herbs",
+cutoffprice: "335.00",
+price: "380.00",
+},
+{
+id: 16,
+img: "https://www.jiomart.com/images/product/600x600/590008025/potted-herbs-assorted-mint-each-product-images-o590008025-p590362830-0-202203170833.jpg",
+name: "Potted Herbs Assorted Mint Each",
+category: "Herbs",
+cutoffprice: "335.00",
+price: "380.00",
+},
+{
+id: 17,
+img: "https://www.jiomart.com/images/product/420x420/599990932/blueberry-premium-imported-pack-125-g-product-images-o599990932-p590860270-0-202207282047.jpg",
+name: "Blueberry Premium Imported Pack 125 g",
+category: "Fruit",
+cutoffprice: "229.00",
+price: "250.00",
+}
+];
+
+function appendData(data) {
+    document.getElementById("contain").innerHTML = null;
+    data.forEach((el, index) => {
+      let box = document.createElement("div");
+      box.setAttribute("class","child");
+      box.style.border = "1px solid gray";
+      box.style.borderRadius = "5px"
+      box.style.padding = "10px";
+      
+      let img = document.createElement("img");
+      img.setAttribute("src", el.img);
+      let id = document.createElement("p");
+      id.innerText = el.id;
+      let name = document.createElement("p");
+      name.innerText = el.name;
+      // price div here
+      let priceDiv = document.createElement("div");
+      priceDiv.style.display = "flex";
+      let price = document.createElement("p");
+      price.innerText = "₹" + el.price;
+      price.style.textDecoration = "line-through"
+      let cutoffprice = document.createElement("p");
+      cutoffprice.innerText = "M.R.P : ₹" + el.cutoffprice;
+      cutoffprice.style.marginRight = "7px";
+      let btn = document.createElement("button");
+      btn.innerText = "Add to Cart";
+      // append to price div
+      priceDiv.append(cutoffprice, price);
+      
+      // append to box
+      box.append(img, id, name, priceDiv, btn);
+      // append to parent
+      document.getElementById("contain").append(box);
+    });
+  }
+
+appendData(arr);
+
+// sorting
+document.getElementById("priceSort").addEventListener("change",(e)=>{
+    let type = e.target.value;
+    if(type == "h2l"){
+        let newData = arr.sort((a,b) => +b.price - +a.price)
+        appendData(newData)
+    }
+    else  if(type == "l2h"){
+        let newData = arr.sort((a,b) => +a.price - +b.price)
+        appendData(newData)
+    }
+});
+//filter by category
+document.getElementById("categoryFilter").addEventListener("change",(e)=>{
+    let category = e.target.value;
+    let newData = arr.filter((element,index)=>{
+        return category == element.category;
+    })
+    appendData(newData);
+});
+//searching
+document.getElementById("searchbar").addEventListener("input",(e)=>{
+    let category = e.target.value;
+    let newData = arr.filter((element,index)=>{
+        return element.name.toLowerCase().includes(input);
+    })
+    appendData(newData);
+});
+
+</script>
