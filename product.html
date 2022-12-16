@@ -183,6 +183,42 @@ button{
 .child:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;;
 }
+.bottom{
+    background-color: rgb(236,237,239);
+    justify-content: space-evenly;
+    display: flex;
+    line-height: 25px;
+}
+.bottom>div:first-child{
+    display: flex;
+    width: auto;
+}
+.bottom>div>div{
+    margin: 40px; 
+    height: 400px;
+    /* padding: 10% 0; */
+    /* -ms-transform: translateY(-50%); */
+  transform: translateY(20%);
+}
+.bottom>div:last-child{
+    transform: translateY(20%);
+    width: 30%;
+}
+.bottom li:first-child{
+    cursor: auto;
+}
+.bottom li{
+    cursor: pointer;
+}
+.last{
+    display: flex;
+    font-size: smaller;
+    line-height: 7px;
+    text-align: center;
+    background-color: rgb(236,237,239);
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}
     </style>
 </head>
 <body>
@@ -193,7 +229,7 @@ button{
                 <li><i class="fa fa-bars" style="font-size:20px;color:white;cursor: pointer;"></i></li>
                 <img src="https://www.jiomart.com/assets/version1669919139/smartweb/images/jiomart_logo_beta.svg" alt="">
                 <input type="text" style="width: 55%"  placeholder="Search essentials, groceries and more...">
-                &nbsp<li><a href="#"><i class="glyphicon glyphicon-user">&nbsp</i>Sign up/Sign in</a></li>
+                &nbsp<li><a href="sign_up.html"><i class="glyphicon glyphicon-user">&nbsp</i>Sign up/Sign in</a></li>
                 <li><a href="#"></a></li>
                 <li><a href="#"><i class="fa fa-shopping-cart" style="font-size:24px;color:white"></i>&nbsp Cart</a></li>
             </ul>
@@ -203,7 +239,7 @@ button{
                 <li><a href="#">Groceries &nbsp<i class="arrow down"></i></a>
                     <div class="submenu">
                         <ul>
-                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="product.html">Fruits & Vegetables</a></li>
                             <li><a href="#">Dairy & Bakery</a></li>
                             <li><a href="#">Fruits & Vegetables</a></li>
                             <li><a href="#">Staples</a></li>
@@ -404,6 +440,52 @@ button{
             </select>
         </div> 
         <div id="contain"></div>
+    </div>
+    <div class="bottom">
+        <div>
+            <div>
+                <ul>
+                    <li style="font-weight:600 ;">MOST POPULAR CATEGORIES</li>
+                    <li>Staples</li>
+                    <li>Beverages</li>
+                    <li>Personal Care</li>
+                    <li>Home Care</li>
+                    <li>Fruits & Vegetables</li>
+                    <li>Baby Care</li>
+                    <li>Snacks & Branded Foods</li>
+                    <li>Dairy & Balery</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li style="font-weight:600">CUSTOMER SERVICES</li>
+                    <li>About Us</li>
+                    <li>Terms & Condotions</li>
+                    <li>Privacy Policy</li>
+                    <li>E-waste Policy</li>
+                    <li>Cancellation & return policy</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h5 style="font-weight:600">CONTACT US</h5>
+            <p>WhatsApp us : <a href="#">70003 70003</a> </p>
+            <p>Call Us : <a href="#">1800 890 1222</a>  <br>
+                8:00 AM to 8:00 PM, 365 days</p>
+            <p>Please note that you are accessing the BETA Version of <a href="#">www.jiomart.com</a></p>
+            <p>Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the beta website, please email us on <a href="#">cs@jiomart.com</a></p>
+        </div>
+    </div>
+    <div class="last">
+        <div style="width: 70%;">
+            <p>Best viewed on Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+, Google Chrome 80+</p>
+            <p>© 2022 All rights reserved. Reliance Retail Ltd.</p>
+        </div>
+        <div>
+            <p>DOWNLOAD APP</p>
+            <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/ios_store.png" alt="">
+            <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/play_store.png" alt="">
+        </div>
     </div>
 </body>
 </html>
@@ -711,8 +793,8 @@ function appendData(data) {
       let img = document.createElement("img");
       img.setAttribute("src", el.img);
       
-    //   let id = document.createElement("p");
-    //   id.innerText = el.id;
+      let id = document.createElement("p");
+      id.innerText = el.id;
       let name = document.createElement("p");
       name.innerText = el.name;
       // price div here
@@ -726,11 +808,31 @@ function appendData(data) {
       cutoffprice.style.marginRight = "7px";
       let btn = document.createElement("button");
       btn.innerText = "Add to Cart";
+      btn.addEventListener("click",()=>{
+      let cartData = JSON.parse(localStorage.getItem("cart"));
+      if(cartData==null) cartData=[];
+
+      isAlreadyPresent = false;
+      for(let i=0;i<cartData.length;i++){
+        if(cartData[i].id == el.id){
+          isAlreadyPresent = true;
+          break;
+        }
+      }
+      if(isAlreadyPresent == true){
+        alert("Product Already in Cart");
+      }
+      else {
+        cartData.push({...el,quantity:1});
+        localStorage.setItem("cartItems",JSON.stringify(cartData));
+        alert("Product added to cart");
+      }
+    })
       // append to price div
       priceDiv.append(cutoffprice, price);
       
       // append to box
-      box.append(img, id, name, priceDiv, btn);
+      box.append(img, name, priceDiv, btn);
       // append to parent
       document.getElementById("contain").append(box);
     });
@@ -759,12 +861,12 @@ document.getElementById("categoryFilter").addEventListener("change",(e)=>{
     appendData(newData);
 });
 //searching
-document.getElementById("searchbar").addEventListener("input",(e)=>{
-    let category = e.target.value;
-    let newData = arr.filter((element,index)=>{
-        return element.name.toLowerCase().includes(input);
-    })
-    appendData(newData);
-});
+// document.getElementById("searchbar").addEventListener("input",(e)=>{
+//     let category = e.target.value;
+//     let newData = arr.filter((element,index)=>{
+//         return element.name.toLowerCase().includes(input);
+//     })
+//     appendData(newData);
+// });
 
 </script>
