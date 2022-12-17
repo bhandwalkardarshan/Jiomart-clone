@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <style>
+        *{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    position: relative;
+}
+#top{
+    position: relative;
+    width: 100%;
+}
+.nav{
+    background-color: rgb(0,142,204);  
+}
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 100px;
+}
+.nav ul li{
+    display: inline-block;
+    line-height: 60px;
+}
+.nav ul li a{
+    color: white;
+    font-size: 15px;
+}
+.nav input{
+    font-size: 15px;
+    height: 35px;
+    margin: auto 0%;
+    border-radius: 7px;
+    padding-left: 10px;
+    border: 0px;
+}
+.menus{
+    background-color: rgb(236,236,237);
+}
+.menus ul{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+}
+.menus ul li{
+    line-height: 40px;
+    background-color: rgb(236,236,237);
+    font-weight: 500;
+}
+.menus ul li a{
+    color: black;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.submenu{
+    display: none;
+}
+.menus ul li:hover .submenu{
+    display: inline-block;
+    position:absolute; 
+    margin-top: 35px;
+    margin-left: -15px; 
+}
+.menus ul li:hover .submenu ul{
+    display: block;
+    margin-left: -100px;
+}
+.menus ul li:hover .submenu ul li{
+    width: 185px;
+    text-align: left;
+}
+.menus ul li:hover .submenu ul li a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.menus ul li:hover .submenu ul li:hover, .menus ul li:hover .submenu ul li a:hover{ 
+    background-color: white;
+    color: rgb(0,142,204);
+    font-size: 15px;
+}
+#contain {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    gap: 20px;
+    background-color:rgb(236,236,237) ;
+    padding-left: 20px;
+    padding-top: 0px;
+}
+#contain>div{
+    width: 230px;
+    background-color: white;
+}
+#contain img {
+    width: 100%;
+}
+button{
+    color: white;
+    background-color: rgb(0,142,204);
+    width: 97%;
+    text-align: left;
+    height: auto;
+    font-size: larger;
+    border: 0px;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 9px;
+}
+.child p{
+    font-weight: 600;
+}
+.filter{
+    text-align: right;
+    background-color: rgb(236,236,237);
+}
+#categoryFilter,#priceSort{
+    height: 30px;
+    margin: 10px;
+    width: 200px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+.child>img:hover{
+    transform: scale(1.1);
+}
+.child:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;;
+}
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div class="nav">
+            <ul>
+                <li><i class="fa fa-bars" style="font-size:20px;color:white;cursor: pointer;"></i></li>
+                <img src="https://www.jiomart.com/assets/version1669919139/smartweb/images/jiomart_logo_beta.svg" alt="">
+                <input type="text" style="width: 55%" placeholder="Search essentials, groceries and more...">
+                &nbsp<li><a href="sign_up.html"><i class="glyphicon glyphicon-user">&nbsp</i>Sign up/Sign in</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart" style="font-size:24px;color:white"></i>&nbsp Cart</a></li>
+            </ul>
+        </div>
+        <div class="menus">
+            <ul>
+                <li><a href="#">Groceries &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="product.html">Fruits & Vegetables</a></li>
+                            <li><a href="#">Dairy & Bakery</a></li>
+                            <li><a href="#">Fruits & Vegetables</a></li>
+                            <li><a href="#">Staples</a></li>
+                            <li><a href="#">Snacks & Branded Food</a></li>
+                            <li><a href="#">Beverages</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Premium Fruits &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Apples & Pears</a></li>
+                            <li><a href="#">Avacado, Peach, Plum</a></li>
+                            <li><a href="#">Banana & Coconut</a></li>
+                            <li><a href="#">Cherries & Berries </a></li>
+                            <li><a href="#">Citrus, Mango & Grapes</a></li>
+                            <li><a href="#">Dates</a></li>
+                            <li><a href="#">Seasonal & Minor Fruits</a></li>
+                            <li><a href="#">Papaya & Pineapple</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home & Kitchen &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Disposables</a></li>
+                            <li><a href="#">Furnishing</a></li>
+                            <li><a href="#">Furniture</a></li>
+                            <li><a href="#">Home Decor</a></li>
+                            <li><a href="#">Kitchenware</a></li>
+                            <li><a href="#">Tableware</a></li>
+                            <li><a href="#">Garden & Outdoor</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Fashion &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Boys</a></li>
+                            <li><a href="#">Girls</a></li>
+                            <li><a href="#">Junior Boys</a></li>
+                            <li><a href="#"> Infants</a></li>
+                            <li><a href="#"> Baby Care</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Electronics &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Mobiles & Tablets</a></li>
+                            <li><a href="#">TV & Speakers</a></li>
+                            <li><a href="#">Home Appliances</a></li>
+                            <li><a href="#">Computers</a></li>
+                            <li><a href="#">Cameras</a></li>
+                            <li><a href="#">Kitchen Appliances</a></li>
+                            <li><a href="#">Smart Devices</a></li>
+                            <li><a href="#">Gaming</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Phones</a></li>
+                            <li><a href="#">Grooming</a></li>
+                            <li><a href="#">Office Products</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Beauty &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Make-Up</a></li>
+                            <li><a href="#">Hair</a></li>
+                            <li><a href="#">Skin Care</a></li>
+                            <li><a href="#">Fragrances</a></li>
+                            <li><a href="#">Personal Care</a></li>
+                            <li><a href="#">Mom & Beauty</a></li>
+                            <li><a href="#">Tools & Appliances</a></li>
+                            <li><a href="#">Wellness</a></li>
+                            <li><a href="#">Fitness</a></li>
+                            <li><a href="#">Treatments</a></li>
+                            <li><a href="#">Covid Essentials</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Home Improvement &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Auto Care</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Hardware & Plumbing</a></li>
+                            <li><a href="#">Home Cleaning</a></li>
+                            <li><a href="#">Packaging Supplies</a></li>
+                            <li><a href="#">Power & Hand Tools</a></li>
+                            <li><a href="#">Home Safety</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Sports, Toys & Luggage &nbsp<i class="arrow down"></i></a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="#">Toys & Games</a></li>
+                            <li><a href="#">Bags & Travel Luggage</a></li>
+                            <li><a href="#">Sporting Goods</a></li>
+                            <li><a href="#">Fitness Equipments</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="contain">
+
+    </div>
+</body>
+</html>
+<script>
+    let container = document.getElementById("contain");    
+let cartData = JSON.parse(localStorage.getItem("cart")) ;
+if(cartData===null){
+cartData=[]; 
+}
+
+displayProduct(cartData);
+
+function displayProduct(data){
+  container.innerHTML = null;
+  let total=0
+  data.forEach((element) => {
+    let card = document.createElement("div");
+
+    let image = document.createElement("img");
+    image.setAttribute("src",element.img);
+
+    let name = document.createElement("h3");
+    name.innerText = element.name;
+    
+    let price = document.createElement("h4");
+    price.innerText = "₹"+element.price;
+
+    let details = document.createElement("p");
+    details.innerText = element.details;
+    
+    let category = document.createElement("p");
+    category.innerText = "Category: "+element.category;
+
+    let increment = document.createElement("button");
+    increment.innerText = "+";
+    let quantity = document.createElement("span");
+    quantity.innerText = element.quantity;
+    let decrement = document.createElement("button");
+    decrement.innerText = "-";
+    let remove = document.createElement("button");
+    remove.innerText = "Remove";
+    let count=1
+    let sum=0
+    increment.addEventListener("click",()=>{
+      +count++;
+      quantity.innerText = count;
+      
+    })
+    sum = element.price * count;
+    decrement.addEventListener("click",()=>{
+      +count--;
+      quantity.innerText = count;
+    })
+    sum = element.price * count;
+    console.log(sum)
+    card.append(image,name,price,details,category,increment,quantity,decrement,remove);
+    container.append(card);
+  });
+}
+</script>
