@@ -1,5 +1,6 @@
 let form = document.querySelector("form");
     let LSdata =JSON.parse(localStorage.getItem("account-data"));
+    console.log(LSdata)
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       let email1 = document.getElementById("email").value;
